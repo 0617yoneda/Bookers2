@@ -13,9 +13,14 @@
     <tr>
       <td><%= attachment_image_tag  user, :profile_image, :fill, 10, 10, fallback: "no_image.jpg" %></td>
       <td><%= user.name %></td>
-      <td><%= link_to user.name, user_path(user) %></td>
+      <td><%= link_to "Show", user_path(user) %></td>
     </tr>
   <% end %>
   </body>
 </table>
 
+<!--プロフィール-->
+<%= render "users/profile", user: @user %>
+
+<!--新規投稿-->
+<%= render "books/new", book: @book %>
