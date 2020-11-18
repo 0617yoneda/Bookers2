@@ -1,6 +1,14 @@
-<h1>welcome to Bookers !!</h1>
+<% if flash[:notice] %>
+  <p><%= flash[:notice]  %></p>
+<% end %>
 
-<p>In <strong>Bookers,</strong></p>
+<div class="social">
+  <h1>welcome to <i class="fas fa-book"></i><strong>Bookers</strong>!!</h1>
+</div>
+
+<div class="social">
+  <p>In<i class="fas fa-book"></i><strong>Bookers</strong>,</p>
+</div>
 
 <p>you can share and exchange your opinions , inpressions , and emotions</p>
 

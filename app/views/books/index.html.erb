@@ -1,3 +1,18 @@
+<!--プロフィール-->
+<%= render "users/profile", user: @user %>
+
+<!--新規投稿-->
+<%= render "books/new", book: @book %>
+
+
+  <% if @book.errors.any? %>
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+        <% @book.errors.full_messages.each do |message| %>
+          <%= message %></li>
+        <% end %>
+ <% end %>
+
 <h1>Books</h1>
 
 <table>
@@ -27,8 +42,3 @@
   </tbody>
 </table>
 
-<!--プロフィール-->
-<%= render "users/profile", user: @user %>
-
-<!--新規投稿-->
-<%= render "books/new", book: @book %>

@@ -1,3 +1,15 @@
+<h1>Books</h1>
+<!--プロフィール-->
+<%= render "users/profile", user: @user %>
+
+<!--新規投稿-->
+<%= render "books/new", book: @book %>
+
+
+if flash[:notice] %>
+  <p><%= flash[:notice]  %></p>
+<% end %>
+
 <!--ここからUser一人Books一覧-->
 <table>
   <thead>
@@ -22,8 +34,3 @@
   </body>
 </table>
 
-<!--プロフィール-->
-<%= render "users/profile", user: @user %>
-
-<!--新規投稿-->
-<%= render "books/new", book: @book %>

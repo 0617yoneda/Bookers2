@@ -4,38 +4,65 @@
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/30ca97842a.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <h3><%= link_to "Bookers", root_path %></h3>
+
     <% if user_signed_in? %>
-      <li>
-        <%= link_to "Home", user_path(current_user.id) %>
-      </li>
-      <li>
-        <%= link_to "Users", users_path %>
-      </li>
-      <li>
-        <%= link_to "Books", books_path %>
-      </li>
-      <li>
-        <%= link_to "logout", destroy_user_session_path, method: :delete %>
-      </li>
+    <ul>
+      <div class="social">
+        <li>
+          <i class="fas fa-home"><%= link_to "Home", user_path(current_user.id) %></i>
+        </li>
+      </div>
+
+      <div class="social">
+        <li>
+          <i class="fas fa-users"><%= link_to "Users", users_path %></i>
+        </li>
+      </div>
+
+      <div class="social">
+        <li>
+          <i class="fas fa-book-open"><%= link_to "Books", books_path %></i>
+        </li>
+      </div>
+
+      <div class="social">
+        <li>
+          <i class="fas fa-sign-out-alt"><%= link_to "logout", destroy_user_session_path, method: :delete %></i>
+        </li>
+      </div>
     <% else %>
-      <li>
-        <%= link_to "Home", root_path %>
-      </li>
-      <li>
-        <%= link_to "About", about_path %>
-      </li>
-      <li>
-        <%= link_to "sign up", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "login", new_user_session_path %>
-      </li>
+      <div class="social">
+        <li>
+          <i class="fas fa-home"><%= link_to "Home", root_path %></i>
+        </li>
+      </div>
+
+      <div class="social">
+        <li>
+          <i class="fas fa-link"><%= link_to "About", about_path %></i>
+        </li>
+      </div>
+
+      <div class="social">
+        <li>
+          <i class="fas fa-user-plus"><%= link_to "sign up", new_user_registration_path %></i>
+        </li>
+      </div>
+
+      <div class="social">
+        <li>
+          <i class="fas fa-sign-in-alt"><%= link_to "login", new_user_session_path %></i>
+        </li>
+      </div>
+    </ul>
     <% end %>
     <%= yield %>
   </body>

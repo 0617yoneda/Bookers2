@@ -1,3 +1,9 @@
+<!--プロフィール-->
+<%= render "users/profile", user: @user %>
+
+<!--新規投稿-->
+<%= render "books/new", book: @book %>
+
 <h1>Users</h1>
 
 <table>
@@ -19,8 +25,3 @@
   </body>
 </table>
 
-<!--プロフィール-->
-<%= render "users/profile", user: @user %>
-
-<!--新規投稿-->
-<%= render "books/new", book: @book %>
