@@ -2,15 +2,24 @@
 
 <h1>User info</h1>
  <%= attachment_image_tag user, :profile_image, size: "60x60", format: 'jpeg', fallback: "no_image.jpg" %>
-<table>
-  <tr>
+<table class="table">
+  <tbody>
+    <tr></tr>
+    <tr>
       <td>name</td>
       <td><%= user.name %></td>
-  </tr>
-  <tr>
+    </tr>
+    <tr>
       <td>introduction</td>
       <td><%= user.introduction %></td>
-  </tr>
+    </tr>
+  </tbody>
 </table>
 
-<%= link_to "プロフィール編集", edit_user_path(user) %>
+<!--編集ボタン-->
+<!--うまく表示されない-->
+<div class="social">
+  <i class="fas fa-user-cog">
+    <%= link_to "プロフィール編集", edit_user_path(user), class: "btn btn-outline-secondary btn-block" %>
+  </i>
+</div>

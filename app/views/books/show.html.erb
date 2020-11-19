@@ -1,36 +1,39 @@
-<!--プロフィール-->
-<%= render "users/profile", user: @user %>
-
-<!--新規投稿-->
-<%= render "books/new", book: @book %>
-
-
-<h1>Book detail</h1>
-
-<table>
-  <tr>
-    <td>
-      <%= link_to user_path(@sbook.user) do %>
-        <%= attachment_image_tag  @sbook.user, :profile_image, size: "60x60", fallback: "no_image.jpg" %>
-        <%= @sbook.user.name %>
-      <% end %>
-    </td>
-    <td>
-      <%= link_to book_path(@sbook) do %>
-        <%= @sbook.title %>
-      <% end %>
-    </td>
-    <td><%= @sbook.body %></td>
-    <td>
-      <%if @sbook.user.id == current_user.id  %>
-        <%= link_to "Edit", edit_book_path(@sbook) %>
-      <% end %>
-    </td>
-    <td>
-      <% if @sbook.user.id == current_user.id %>
-        <%= link_to "Destroy", book_path(@sbook), method: :delete, data: { confirm: "本当に消しますか？" }%>
-      <% end %>
-    </td>
-  </tr>
-</table>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <!--プロフィール-->
+      <%= render "users/profile", user: @user %>
+      <!--新規投稿-->
+      <%= render "books/new", book: @book %>
+    </div>
+    <div class="offset-md-1 col-md-8">
+      <h1>Book detail</h1>
+      <table class="table">
+        <tr>
+          <td>
+            <%= link_to user_path(@sbook.user) do %>
+              <%= attachment_image_tag  @sbook.user, :profile_image, size: "60x60", fallback: "no_image.jpg" %>
+              <br><%= @sbook.user.name %></br>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to book_path(@sbook) do %>
+              <%= @sbook.title %>
+            <% end %>
+          </td>
+          <td><%= @sbook.body %></td>
+          <td>
+            <%if @sbook.user.id == current_user.id  %>
+              <%= link_to "Edit", edit_book_path(@sbook) %>
+            <% end %>
+          </td>
+          <td>
+            <% if @sbook.user.id == current_user.id %>
+              <%= link_to "Destroy", book_path(@sbook), method: :delete, data: { confirm: "本当に消しますか？" }%>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
