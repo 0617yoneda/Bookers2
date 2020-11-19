@@ -1,10 +1,11 @@
-<% if @book.errors.any? %>
-  <h2><%= pluralize(@book.errors.count, "error") %> prohibited this product from being saved:</h2>
-    <% @book.errors.full_messages.each do |message| %>
-     <li><%= message %></li>
-    <% end %>
-<% end %>
-
+<div class="errors-text">
+  <% if @book.errors.any? %>
+    <h2><%= pluralize(@book.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <% @book.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+      <% end %>
+  <% end %>
+</div>
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">

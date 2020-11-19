@@ -1,11 +1,13 @@
-<h1>Editing Book</h1>
+<div class="errors-text">
+  <% if @book.errors.any? %>
+    <h2><%= pluralize(@book.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+  <% end %>
+</div>
 
-<% if @book.errors.any? %>
-  <h2><%= pluralize(@book.errors.count, "error") %> prohibited this product from being saved:</h2>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-<% end %>
+<h1>Editing Book</h1>
 
 <%= form_with model:@book, local: true do |f| %>
   <h4>Title</h4>
