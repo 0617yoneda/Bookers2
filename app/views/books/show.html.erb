@@ -1,3 +1,8 @@
+<p id="notice">
+  <%if flash[:notice] %>
+    <%= flash[:notice]  %>
+  <% end %>
+</p>
 <div class="container">
   <div class="row">
     <div class="col-md-3">
@@ -7,7 +12,7 @@
       <%= render "books/new", book: @book %>
     </div>
     <div class="offset-md-1 col-md-8">
-      <h1>Book detail</h1>
+      <h2>Book detail</h2>
       <table class="table">
         <tr>
           <td>
@@ -24,12 +29,12 @@
           <td><%= @sbook.body %></td>
           <td>
             <%if @sbook.user.id == current_user.id  %>
-              <%= link_to "Edit", edit_book_path(@sbook) %>
+              <%= link_to "Edit", edit_book_path(@sbook), class:"btn btn-sm btn-success" %>
             <% end %>
           </td>
           <td>
             <% if @sbook.user.id == current_user.id %>
-              <%= link_to "Destroy", book_path(@sbook), method: :delete, data: { confirm: "本当に消しますか？" }%>
+              <%= link_to "Destroy", book_path(@sbook), method: :delete, data: { confirm: "本当に消しますか？" }, class:"btn btn-sm btn-danger" %>
             <% end %>
           </td>
         </tr>

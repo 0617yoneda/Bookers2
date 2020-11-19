@@ -1,12 +1,14 @@
-<div class="errors-text">
-  <% if @book.errors.any? %>
-    <h2><%= pluralize(@book.errors.count, "error") %> prohibited this product from being saved:</h2>
-      <% @book.errors.full_messages.each do |message| %>
-       <li><%= message %></li>
-      <% end %>
-  <% end %>
-</div>
+<p id="notice"></p>
+
 <div class="container px-5 px-sm-0">
+  <div class="errors-text">
+    <% if @book.errors.any? %>
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this product from being saved:</h2>
+        <% @book.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+        <% end %>
+    <% end %>
+  </div>
   <div class="row">
     <div class="col-md-3">
       <!--プロフィール-->
@@ -15,7 +17,7 @@
       <%= render "books/new", book: @book %>
     </div>
     <div class="offset-md-1 col-md-8">
-      <h1>Books</h1>
+      <h2>Books</h2>
       <table class="table table-hover table-inverse">
         <thead>
           <tr>

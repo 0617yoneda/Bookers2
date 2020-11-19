@@ -1,3 +1,9 @@
+<p id="notice">
+  <%if flash[:notice] %>
+    <%= flash[:notice]  %>
+  <% end %>
+</p>
+
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
@@ -7,11 +13,9 @@
       <%= render "books/new", book: @book %>
     </div>
     <div class="offset-md-1 col-md-8">
-      <%if flash[:notice] %>
-        <p><%= flash[:notice]  %></p>
-      <% end %>
 
-      <h1>Books</h1>
+
+      <h2>Books</h2>
       <!--ここからUser一人Books一覧-->
       <table class="table table-hover table-inverse">
         <thead>
