@@ -30,15 +30,42 @@
           <td>
             <%if @sbook.user.id == current_user.id  %>
               <%= link_to "Edit", edit_book_path(@sbook), class:"btn btn-sm btn-success" %>
+            <% else %>
+              <% if @sbook.favorited_by?(current_user) %>
+              <p>
+                <%= link_to book_favorites_path(@sbook), method: :delete do  %>
+                  ♥<%= @sbook.favorites.count %>
+             　   <% end %>
+              </p>
+              <% else %>
+              <p>
+                <%= link_to book_favorites_path(@sbook), method: :post do  %>
+                  ♡<%= @sbook.favorites.count %>
+                <% end %>
+              <% end %>
+              </p>
             <% end %>
           </td>
           <td>
             <% if @sbook.user.id == current_user.id %>
               <%= link_to "Destroy", book_path(@sbook), method: :delete, data: { confirm: "本当に消しますか？" }, class:"btn btn-sm btn-danger" %>
+            <% else %>
+              <p><%= @sbook.book_comments.count %>コメント</p>
             <% end %>
           </td>
         </tr>
       </table>
+      <div class="body-comment">
+      <!--each-->
+      </div>
+      <div class="new-comment">
+        <%= form_with(model:[@sbook, @book_comment], local: true) do |f| %>
+          <%= f.text_area :comment, rows:'150', size:"100",　placeholder: "コメントをここに" %>
+          <%= f.submit "送信" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+
+
