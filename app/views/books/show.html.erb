@@ -50,7 +50,7 @@
             <% if @sbook.user.id == current_user.id %>
               <%= link_to "Destroy", book_path(@sbook), method: :delete, data: { confirm: "本当に消しますか？" }, class:"btn btn-sm btn-danger" %>
             <% else %>
-              <p><i class="far fa-heart">コメント数:<%= @sbook.book_comments.count %></i></p>
+              <p>コメント数:<%= @sbook.book_comments.count %></p>
             <% end %>
           </td>
         </tr>
@@ -67,7 +67,14 @@
                 <br><%= comment.user.name %>
               <% end %>
             </td>
-            <td><%= comment.comment %></td>
+            <td>
+              <%= comment.comment %>
+            </td>
+            <td>
+              <% if comment.user.id == current_user.id %>
+                <%= link_to "Destroy", book_book_comment_path(comment.book.id, comment), method: :delete, class:"btn btn-sm btn-danger" %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
         </table>
