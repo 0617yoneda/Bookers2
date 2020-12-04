@@ -27,7 +27,7 @@
           </tr>
         </thead>
         <tbody>
-        <% @books.each do |book| %>
+          <% @books.each do |book| %>
           <tr>
             <td>
               <%= link_to user_path(book.user) do %>
@@ -41,7 +41,7 @@
             </td>
             <td><%= book.body %></td>
           </tr>
-        <% end %>
+          <% end %>
         </body>
       </table>
     </div>

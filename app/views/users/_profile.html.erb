@@ -11,11 +11,22 @@
       <td>introduction</td>
       <td><%= user.introduction %></td>
     </tr>
+    <tr>
+      <td>follows</td>
+      <td><%= user.follower.count %></td>
+    </tr>
+     <tr>
+      <td>followers</td>
+      <td><%= user.followed.count %></td>
+    </tr>
   </tbody>
 </table>
-
-<!--編集ボタン-->
-<!--うまく表示されない-->
-<div class="row">
-    <%= link_to "", edit_user_path(user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
-</div>
+    <% if user.id == current_user.id  %>
+      <%= link_to "", edit_user_path(user), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
+    <% else %>
+      <% if current_user.following?(user) %>
+        <%= link_to "フォロー外す", unfollow_path(user.id), method: :post, class: "btn btn-info" %>
+      <% else %>
+        <%= link_to "フォローする", follow_path(user.id), method: :post, class: "btn btn-success" %>
+      <% end %>
+    <% end %>
